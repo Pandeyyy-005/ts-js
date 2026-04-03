@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    name:
+    <input type="text" id="name" placeholder="Enter Name"><br>
+    email:
+    <input type="text" id="email" placeholder="Enter Email"><br>
+    query:
+    <input type="text" id="query" placeholder="Enter Query"><br>
+    <input type="button" value="submit" id="b1">
+    <script>
+const b1=document.getElementById("b1")
+b1.addEventListener("click",()=>{
+    const name=document.getElementById("name").value
+    const nameReg=/^[a-zA-Z\s]+$/
+    const email=document.getElementById("email").value
+    const emailReg= /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const query=document.getElementById("query").value
+    const queryReg=/^[a-zA-Z\d\s].+$/
+    if (!nameReg.test(name)) {
+        alert("Enter only Albhabets")
+    }
+    if (!emailReg.test(email)) {
+        alert("Enter valid email")
+    }
+    if(!queryReg.test(query)){
+alert("Enter valid query")
+    }
+    alert("form submitted successfully")
+    localStorage.setItem("name",name)
+    localStorage.setItem("email",email)
+    localStorage.setItem("query",query)
+})
+    </script>
+</body>
+</html>
